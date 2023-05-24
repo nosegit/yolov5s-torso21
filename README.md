@@ -1,6 +1,6 @@
 # custom train with torso dataset
-install package on train pc as instriction below
-## data prepairation : https://github.com/nosegit/yaml-to-txt
+install package on train pc as instruction below
+## data preparation : https://github.com/nosegit/yaml-to-txt
 prepair file as instruction : https://docs.ultralytics.com/yolov5/tutorials/train_custom_data
 # train
 ```
