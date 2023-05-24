@@ -1,17 +1,46 @@
 # custom train with torso dataset
+install package on train pc as instriction below
 ## data prepairation : https://github.com/nosegit/yaml-to-txt
+prepair file as instruction : https://docs.ultralytics.com/yolov5/tutorials/train_custom_data
 # train
 ```
+python train.py --batch 64 --epochs 50 --data custom_file/dataset.yaml --cfg yolov5s.yaml # single gpu
+python -m torch.distributed.run --nproc_per_node 2 train.py --batch 64 --epochs 50 --data custom_file/dataset.yaml --cfg yolov5s.yaml --device 0,1 # multi gpu
+
+#train weight locate in yolov5/runs/train
 ```
 
+# python script
+* yolov5s with webcam
+* file location : custom_file/test.py
+```
+import torch
+import cv2
+import os
 
+home = os.path.expanduser("~")
+print(home)
+model = torch.hub.load('/path/to/yolov5', 'custom', path='path/to/yolov5s_tosro.pt', source='local') #load model locally with out internet
+# Image
+img = '../data/images/bus.jpg'
 
+#vid, init webcam
+vid = cv2.VideoCapture(0)
 
+while(True) :
 
-
-
-
-
+	ret,frame = vid.read()
+	frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+	# Inference
+	results = model(frame) # detection from webcam
+	#results = model(img) #detection from image
+	# Results, change the flowing to: results.show()
+	# results.print()
+	# print(results.pandas())  # or .show(), .save(), .crop(), .pandas(), etc
+	print(results.pandas().xyxy[0])
+	print("============================================================")
+```
+---
 <div align="center">
   <p>
     <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
