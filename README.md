@@ -1,7 +1,7 @@
 # custom train with torso dataset
 install package on train pc as instruction below
 ## data preparation : https://github.com/nosegit/yaml-to-txt
-prepair file as instruction : https://docs.ultralytics.com/yolov5/tutorials/train_custom_data
+prepare file as instruction : https://docs.ultralytics.com/yolov5/tutorials/train_custom_data
 # train
 ```
 python train.py --batch 64 --epochs 50 --data custom_file/dataset.yaml --cfg yolov5s.yaml # single gpu
