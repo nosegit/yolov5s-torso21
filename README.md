@@ -1,3 +1,17 @@
+# custom train with torso dataset
+## data prepairation : https://github.com/nosegit/yaml-to-txt
+# train
+```
+```
+
+
+
+
+
+
+
+
+
 <div align="center">
   <p>
     <a align="center" href="https://ultralytics.com/yolov5" target="_blank">
