@@ -1,0 +1,8 @@
+path: ../dataset/reality
+train: images/train
+val: images/val
+
+names:
+  0: ball
+  1: robot
+  2: goalpost
